@@ -1,5 +1,7 @@
 package ru.netology.domain;
 
+import java.util.Objects;
+
 public class Product {
     private int id;
     private String name;
@@ -9,6 +11,9 @@ public class Product {
         this.id = id;
         this.name = name;
         this.price = price;
+    }
+    public Product(){
+
     }
 
     public int getId() {
@@ -34,4 +39,6 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
+
+
 }

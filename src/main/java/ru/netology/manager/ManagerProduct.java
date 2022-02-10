@@ -30,6 +30,18 @@ public class ManagerProduct {
     }
 
     public boolean matches(Product product, String search) {
+
+
+        if (product instanceof SmartPhone) {
+            SmartPhone phone = (SmartPhone) product;
+            if (phone.getManufacturer().contains(search)) {
+                return true;
+            }
+            if (phone.getName().contains(search)) {
+                return true;
+            }
+            return false;
+        }
         if (product instanceof Book) {
             Book book = (Book) product;
             if (book.getAuthor().contains(search)) {
@@ -41,16 +53,6 @@ public class ManagerProduct {
             return false;
 
         }
-        if (product instanceof SmartPhone) {
-            SmartPhone phone = (SmartPhone) product;
-            if (phone.getManufacturer().contains(search)) {
-                return true;
-            }
-            if (phone.getName().contains(search)) {
-                return true;
-            }
-            return false;
-        }
-        return false;
+       return false;
     }
 }
