@@ -52,19 +52,19 @@ class ManagerProductTest {
     }
 
     @Test
-    void shouldFind() {
+    void shouldFindAndroid() {
         Product[] actual=new Product[]{android};
         Product[] expected=manager.searchBy("Samsung");
         assertArrayEquals(actual,expected);
     }
     @Test
-    void should() {
+    void shouldFindAnotherBook() {
         Product[] actual=new Product[]{book2};
         Product[] expected=manager.searchBy("I.S. Turgenev");
         assertArrayEquals(actual,expected);
     }
     @Test
-    void shouldNull() {
+    void shouldFindPhoneTitle() {
         Product[] expected=manager.searchBy("Iphone11");
         Product[] actual=new Product[]{iphone};
 
