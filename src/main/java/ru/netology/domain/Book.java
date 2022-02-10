@@ -9,7 +9,8 @@ public class Book extends Product {
         super(id, name, price);
         this.author = author;
     }
-    public Book(){
+
+    public Book() {
         super();
     }
 
@@ -21,5 +22,9 @@ public class Book extends Product {
         this.author = author;
     }
 
+    @Override
+    public boolean matches(String text) {
+        return super.matches(text) || author.contains(text);
+    }
 
 }

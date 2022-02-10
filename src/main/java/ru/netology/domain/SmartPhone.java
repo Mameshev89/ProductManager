@@ -7,14 +7,20 @@ public class SmartPhone extends Product {
         super(id, name, price);
         this.manufacturer = manufacturer;
     }
-    public SmartPhone(){
+
+    public SmartPhone() {
         super();
     }
+
     public String getManufacturer() {
         return manufacturer;
     }
 
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public boolean matches(String text) {
+        return super.matches(text)|| manufacturer.contains(text);
     }
 }
