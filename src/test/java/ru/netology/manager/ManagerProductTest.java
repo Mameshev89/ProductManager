@@ -15,8 +15,8 @@ class ManagerProductTest {
     private Book book = new Book(1, "Crime and punishment", 3000, "F.M.Dostoevsky");
     private Book book2 = new Book(2, "Fathers and children", 2000, "I.S. Turgenev");
     private SmartPhone iphone = new SmartPhone(3, "Iphone11", 50000, "Apple");
-    private SmartPhone iphone2 = new SmartPhone(3, "Iphone11", 100000, "Apple");
-    private SmartPhone android= new SmartPhone(4,"Galaxy", 50000,"Samsung");
+    private SmartPhone iphone2 = new SmartPhone(4, "Iphone13", 100000, "Apple");
+    private SmartPhone android= new SmartPhone(5,"Galaxy", 50000,"Samsung");
 
     @BeforeEach
     void setUp() {
@@ -65,10 +65,9 @@ class ManagerProductTest {
     }
     @Test
     void shouldFindPhoneTitle() {
-        Product[] expected=manager.searchBy("Iphone11");
-        Product[] actual=new Product[]{iphone};
-
-        assertArrayEquals(actual,expected);
+        Product[] expected=new Product[]{iphone2, iphone};
+        Product[] actual= manager.searchBy("Apple");
+        assertArrayEquals(expected,actual);
     }
 
 }

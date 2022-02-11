@@ -21,5 +21,4 @@ public class Book extends Product {
         this.author = author;
     }
 
-
 }
