@@ -70,4 +70,5 @@ class ManagerProductTest {
 
         assertArrayEquals(actual,expected);
     }
+
 }
