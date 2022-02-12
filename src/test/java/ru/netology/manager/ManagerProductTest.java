@@ -15,8 +15,10 @@ class ManagerProductTest {
     private Book book = new Book(1, "Crime and punishment", 3000, "F.M.Dostoevsky");
     private Book book2 = new Book(2, "Fathers and children", 2000, "I.S. Turgenev");
     private SmartPhone iphone = new SmartPhone(3, "Iphone11", 50000, "Apple");
-    private SmartPhone iphone2 = new SmartPhone(4, "Iphone13", 100000, "Apple");
-    private SmartPhone android= new SmartPhone(5,"Galaxy", 50000,"Samsung");
+    private SmartPhone iphone2 = new SmartPhone(44, "Iphone", 100000, "Apple");
+    private SmartPhone android = new SmartPhone(4, "Galaxy", 500, "Samsung");
+    private SmartPhone android2 = new SmartPhone(9, "RedMi", 50000, "Samsung");
+    private SmartPhone android3 = new SmartPhone(5, "RedMi", 5000, "Samsung");
 
     @BeforeEach
     void setUp() {
@@ -24,50 +26,65 @@ class ManagerProductTest {
         manager.add(book2);
         manager.add(iphone);
         manager.add(android);
+        manager.add(iphone2);
+        manager.add(android2);
+        manager.add(android3);
     }
 
     @Test
     void shouldFindAuthor() {
-        Product[] actual=new Product[]{book};
-        Product[] expected=manager.searchBy("F.M.Dostoevsky");
-        assertArrayEquals(actual,expected);
+        Product[] actual = manager.searchBy("F.M.Dostoevsky");
+        Product[] expected = new Product[]{book};
+        assertArrayEquals(expected, actual);
     }
+
     @Test
     void shouldFindNameBook() {
-        Product[] actual=new Product[]{book2};
-        Product[] expected=manager.searchBy("Fathers and children");
-        assertArrayEquals(actual,expected);
-    }
-    @Test
-    void shouldFindNameSmartPhone() {
-        Product[] actual=new Product[]{iphone};
-        Product[] expected=manager.searchBy("Iphone11");
-        assertArrayEquals(actual,expected);
-    }
-    @Test
-    void shouldFindManufacturerPhone() {
-        Product[] actual=new Product[]{android};
-        Product[] expected=manager.searchBy("Galaxy");
-        assertArrayEquals(actual,expected);
+        Product[] actual = manager.searchBy("Fathers and children");
+        Product[] expected = new Product[]{book2};
+        assertArrayEquals(expected, actual);
     }
 
     @Test
-    void shouldFindAndroid() {
-        Product[] actual=new Product[]{android};
-        Product[] expected=manager.searchBy("Samsung");
-        assertArrayEquals(actual,expected);
-    }
-    @Test
-    void shouldFindAnotherBook() {
-        Product[] actual=new Product[]{book2};
-        Product[] expected=manager.searchBy("I.S. Turgenev");
-        assertArrayEquals(actual,expected);
-    }
-    @Test
-    void shouldFindPhoneTitle() {
-        Product[] expected=new Product[]{iphone2, iphone};
-        Product[] actual= manager.searchBy("Apple");
-        assertArrayEquals(expected,actual);
+    void shouldFindNamePhone() {
+        Product[] actual = manager.searchBy("Iphone11");
+        Product[] expected = new Product[]{iphone};
+        assertArrayEquals(expected, actual);
     }
 
+    @Test
+    void shouldFindPhoneAnotherPhone() {
+        Product[] actual = manager.searchBy("Galaxy");
+        Product[] expected = new Product[]{android};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldFindManufacturerAnotherPhone() {
+        Product[] actual = manager.searchBy("Samsung");
+        Product[] expected = new Product[]{android, android2, android3};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldFindAuthorAnotherBook() {
+        Product[] actual = manager.searchBy("I.S. Turgenev");
+        Product[] expected = new Product[]{book2};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldFindInBothProduct() {
+        Product[] actual = manager.searchBy("Apple");
+        Product[] expected = new Product[]{iphone, iphone2};
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldFindIn() {
+        Product[] actual = manager.searchBy("Huawey");
+        Product[] expected = new Product[]{};
+        assertArrayEquals(expected, actual);
+    }
 }

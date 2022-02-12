@@ -9,9 +9,11 @@ public class SmartPhone extends Product {
         super(id, name, price);
         this.manufacturer = manufacturer;
     }
-    public SmartPhone(){
+
+    public SmartPhone() {
         super();
     }
+
     public String getManufacturer() {
         return manufacturer;
     }

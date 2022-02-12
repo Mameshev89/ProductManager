@@ -40,7 +40,7 @@ public class ManagerProduct {
             if (phone.getName().contains(search)) {
                 return true;
             }
-           // return false;
+            return false;
         }
         if (product instanceof Book) {
             Book book = (Book) product;
@@ -50,9 +50,9 @@ public class ManagerProduct {
             if (book.getName().contains(search)) {
                 return true;
             }
-            //return false;
+            return false;
 
         }
-       return false;
+        return false;
     }
 }

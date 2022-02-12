@@ -4,6 +4,7 @@ import ru.netology.domain.Product;
 
 public class ProductRepository {
     private Product[] items = new Product[0];
+
     public void save(Product item) {
         Product[] tmt = new Product[items.length + 1];
         for (int i = 0; i < items.length; i++) {
@@ -24,10 +25,11 @@ public class ProductRepository {
             items = tmt;
         }
     }
+
     public Product findById(int id) {
         for (Product item : items) {
             if (item.getId() == id) {
-                return  item;
+                return item;
             }
         }
         return null;
